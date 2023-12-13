@@ -70,11 +70,13 @@ class Game:
             self.draw()
             if self.player.health <= 0:
                 break
-        self.screen.fill('red')
-        time.sleep(5)
-        pg.quit()
-        sys.exit()
-
+        self.objRenderer.draw_end_screen()
+        pg.mixer.music.stop()
+        pg.display.flip()
+        time.sleep(3)
+        self.sound.shotgun.play()
+        while True:
+            self.check_events()
 if __name__ == '__main__':
     game = Game()
     game.run()
