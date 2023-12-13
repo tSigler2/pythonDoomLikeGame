@@ -26,7 +26,6 @@ class HealthPickUp(PickUp):
         if self.game.player.health > 100:
             self.game.player.health = 100
         
-
     def update(self):
         if not self.picked_up:
             self.check_animation_time()
