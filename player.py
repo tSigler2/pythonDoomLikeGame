@@ -49,6 +49,9 @@ class Player:
         if keys[pg.K_a]:
             dx += speed_sin
             dy += -speed_cos
+        if keys[pg.K_e]:
+            self.health -= 10
+            print(self.health)
 
         self.check_wall_collision(dx, dy)
         
@@ -75,6 +78,14 @@ class Player:
             self.x += dx
         if self.check_wall(int(self.x), int(self.y + dy * scale)):
             self.y += dy
+
+    def draw_health_bar(self):
+        ratio = self.health/P_MAX_HEALTH
+        if ratio < 0:
+            ratio = 0
+        
+        pg.draw.rect(self.game.screen, 'black', (50, 50, 300, 40))
+        pg.draw.rect(self.game.screen, 'green', (50, 50, 300 * ratio, 40))
         
     def update(self):
         self.movement()

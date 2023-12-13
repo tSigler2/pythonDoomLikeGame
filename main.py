@@ -42,13 +42,14 @@ class Game:
         self.object_handler.update()
         self.weapon.update()
         pg.display.flip()
-        self.delta_time = self.clock.tick(FPS)
+        self.delta_time = self.clock.tick()
         pg.display.set_caption(f'{self.clock.get_fps() :.1f}')
 
     def draw(self):
         #self.screen.fill('black')
         self.objRenderer.draw()
         self.weapon.draw()
+        self.player.draw_health_bar()
         #self.map.draw()
         #self.player.draw()
 
