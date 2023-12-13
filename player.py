@@ -49,9 +49,6 @@ class Player:
         if keys[pg.K_a]:
             dx += speed_sin
             dy += -speed_cos
-        if keys[pg.K_e]:
-            self.health -= 10
-            print(self.health)
 
         self.check_wall_collision(dx, dy)
         

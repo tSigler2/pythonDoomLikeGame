@@ -34,8 +34,6 @@ class HealthPickUp(PickUp):
 
             if self.check_player():
                 self.add_health()
-                print(self.game.player.health)
-        
         
     @property
     def map_pos(self):
