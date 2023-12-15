@@ -18,8 +18,7 @@ class ObjectRenderer:
     def draw_background(self):
         #self.sky_offset = (self.sky_offset + 4.0 * self.game.player.rel) % WIDTH
         #self.screen.blit(self.sky_image, (-self.sky_offset, 0))
-       #self.screen.blit(self.sky_image, (-self.sky_offset + WIDTH, 0))
-        
+        #self.screen.blit(self.sky_image, (-self.sky_offset + WIDTH, 0))
         
         pg.draw.rect(self.screen, CEIL_COLOR, (0, 0, WIDTH, HEIGHT))
         pg.draw.rect(self.screen, FLOOR_COLOR, (0, HALF_HEIGHT, WIDTH, HEIGHT))

@@ -13,6 +13,10 @@ class PickUp(Animated_Sprite):
             return True
         return False
     
+    @property
+    def map_pos(self):
+        return int(self.x), int(self.y)
+    
 
 class HealthPickUp(PickUp):
     def __init__(self, game, path='Assets/Animated_Sprites/Heart/0.png', pos=(17, 7.5), scale=0.35, shift=0.8, animation_time=180, health_amount=20):
@@ -34,7 +38,21 @@ class HealthPickUp(PickUp):
 
             if self.check_player():
                 self.add_health()
-        
-    @property
-    def map_pos(self):
-        return int(self.x), int(self.y)
+
+class AmmoPickUp(PickUp):
+    def __init__(self, game, path='Assets/Animated_Sprites/ammo_pickup/0.png', pos=(3.5, 4), scale=0.35, shift=0.8, animation_time=180, ammo_amount=10):
+        super().__init__(game, path, pos, scale, shift, animation_time)
+        self.ammo_amount = ammo_amount
+
+    def add_ammo(self):
+        self.game.player.ammo += self.ammo_amount
+        self.picked_up = True
+
+    def update(self):
+        if not self.picked_up:
+            self.check_animation_time()
+            self.get_sprite()
+            self.animate(self.images)
+
+            if self.check_player():
+                self.add_ammo()

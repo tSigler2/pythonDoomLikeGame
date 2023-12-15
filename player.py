@@ -9,10 +9,13 @@ class Player:
         self.angle = P_ANGLE
         self.shot = False
         self.health = P_MAX_HEALTH
+        self.ammo = P_AMMO
+        self.ammo_font = pg.font.SysFont('chalkduster.ttf', 36)
 
     def single_fire_event(self, event):
-        if event.type == pg.MOUSEBUTTONDOWN:
+        if event.type == pg.MOUSEBUTTONDOWN and self.ammo > 0:
             if event.button == 1 and not self.shot and not self.game.weapon.reloading:
+                self.ammo -= 1
                 self.game.sound.shotgun.play()
                 self.shot = True
                 self.game.weapon.reloading = True
@@ -83,6 +86,11 @@ class Player:
         
         pg.draw.rect(self.game.screen, 'black', (50, 50, 300, 40))
         pg.draw.rect(self.game.screen, 'green', (50, 50, 300 * ratio, 40))
+        
+
+    def draw_ammo_count(self):
+        ammo_img = self.ammo_font.render('Ammo: ' + str(self.ammo), True, (0, 0, 0))
+        self.game.screen.blit(ammo_img, (50, 95))
         
     def update(self):
         self.movement()

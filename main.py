@@ -50,6 +50,7 @@ class Game:
         self.objRenderer.draw()
         self.weapon.draw()
         self.player.draw_health_bar()
+        self.player.draw_ammo_count()
         #self.map.draw()
         #self.player.draw()
 

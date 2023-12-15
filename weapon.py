@@ -28,4 +28,3 @@ class Weapon(Animated_Sprite):
     def update(self):
         self.check_animation_time()
         self.animate_shot()
-        pass

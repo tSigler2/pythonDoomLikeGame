@@ -1,6 +1,7 @@
 from sprite_object import *
 from npc import *
 from pick_ups import *
+from interactable_objects import *
 
 class ObjectHandler:
     def __init__(self, game):
@@ -8,6 +9,7 @@ class ObjectHandler:
         self.sprite_list = []
         self.npc_list = []
         self.pick_up_list = []
+        self.interactable_list = []
         self.npc_sprite_path = 'Assets/NPCs'
         self.static_sprite_path = 'Assets/static_sprites/'
         self.anim_sprite_path = 'Assets/Animated_Sprites'
@@ -15,6 +17,7 @@ class ObjectHandler:
         add_sprite = self.add_sprite
         add_npc = self.add_npc
         add_pick_up = self.add_pick_up
+        add_interactable = self.add_interactable
         self.npc_pos = {}
 
         add_sprite(SpriteObj(game))
@@ -28,12 +31,16 @@ class ObjectHandler:
         add_npc(NPC(game, path='Assets/NPCs/glass_cannon/0.png', pos=(15, 19), speed=0.5, health=500))
 
         add_pick_up(HealthPickUp(game, pos=(3, 11)))
+        add_pick_up(AmmoPickUp(game))
+
+        add_interactable(Portal(game))
 
     def update(self):
         self.npc_pos = {npc.map_pos for npc in self.npc_list if npc.alive}
         [sprite.update() for sprite in self.sprite_list]
         [npc.update() for npc in self.npc_list]
         [pick_up.update() for pick_up in self.pick_up_list]
+        [interactable.update() for interactable in self.interactable_list]
     
     def add_sprite(self, sprite):
         self.sprite_list.append(sprite)
@@ -43,3 +50,6 @@ class ObjectHandler:
 
     def add_pick_up(self, pu):
         self.pick_up_list.append(pu)
+
+    def add_interactable(self, interactable):
+        self.interactable_list.append(interactable)
