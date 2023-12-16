@@ -25,8 +25,6 @@ class Portal(Interactable_No_Key):
     def __init__(self, game, path='Assets/Animated_Sprites/Portal/0.png', pos=(16.5, 7.9), scale=1, shift=0, animation_time=100, teleport_location=(2.0, 12.0)):
         super().__init__(game, path, pos, scale, shift, animation_time)
         self.teleport_location = teleport_location
-        print(self.game.player.pos)
-        print(self.x-self.dist, self.x+self.dist, self.y-self.dist, self.y+self.dist)
 
     def teleport(self):
         for npc in self.game.object_handler.npc_list:

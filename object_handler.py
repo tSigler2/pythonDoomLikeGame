@@ -33,7 +33,8 @@ class ObjectHandler:
         add_pick_up(HealthPickUp(game, pos=(3, 11)))
         add_pick_up(AmmoPickUp(game))
 
-        add_interactable(Portal(game))
+        add_interactable(Portal(game, teleport_location=(1.5, 22.55)))
+        add_interactable(Portal(game, pos=(1.5, 22.1), teleport_location=(16.5, 7.45)))
 
     def update(self):
         self.npc_pos = {npc.map_pos for npc in self.npc_list if npc.alive}
