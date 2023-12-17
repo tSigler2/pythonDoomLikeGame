@@ -62,6 +62,10 @@ class Game:
                 sys.exit()
             elif e.type == self.glob_event:
                 self.glob_trigger = True
+            elif e.type == pg.KEYDOWN and e.key == pg.K_m and pg.mixer.music.get_busy():
+                pg.mixer.music.pause()
+            elif e.type == pg.KEYDOWN and e.key == pg.K_m and not pg.mixer.music.get_busy():
+                pg.mixer.music.unpause()
             self.player.single_fire_event(e)
     
     def run(self):

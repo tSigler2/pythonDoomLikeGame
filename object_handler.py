@@ -29,12 +29,33 @@ class ObjectHandler:
         add_npc(NPC(game, pos=(16.5, 7.5)))
         add_npc(NPC(game, path='Assets/NPCs/glass_cannon/0.png', pos=(2, 19), speed=0.5, health=500))
         add_npc(NPC(game, path='Assets/NPCs/glass_cannon/0.png', pos=(15, 19), speed=0.5, health=500))
+        add_npc(TaggedNPC(game, pos=(22.5, 5.5), tag=0))
+        add_npc(TaggedNPC(game, pos=(24.5, 11.5), tag=1))
+        add_npc(TaggedNPC(game, pos=(22.5, 17.5), tag=2))
+        add_npc(TaggedNPC(game, pos=(24.5, 23.5), tag=3))
 
         add_pick_up(HealthPickUp(game, pos=(3, 11)))
         add_pick_up(AmmoPickUp(game))
 
-        add_interactable(Portal(game, teleport_location=(1.5, 22.55)))
-        add_interactable(Portal(game, pos=(1.5, 22.1), teleport_location=(16.5, 7.45)))
+        add_interactable(Portal(game, pos=(16.5, 7.9), teleport_location=(22.5, 1.61)))
+        add_interactable(SwitchablePortal(game, pos = (22.5, 1.2), orig_location=(22.5, 9.39), alt_location=(24.5, 15.39), tag=0))
+        add_interactable(SwitchablePortal(game, pos=(22.5, 9.8), orig_location=(22.5, 1.61), alt_location=(24.5, 7.61), tag=0))
+        add_interactable(SwitchablePortal(game, pos=(18.2, 5.5), orig_location=(26.39, 5.5), alt_location=(28.39, 11.5), tag=0))
+        add_interactable(SwitchablePortal(game, pos=(26.8, 5.5), orig_location=(18.61, 5.5), alt_location=(20.61, 11.5), tag=0))
+        add_interactable(SwitchablePortal(game, pos=(24.5, 7.2), orig_location=(24.5, 15.39), alt_location=(22.5, 21.39), tag=1))
+        add_interactable(SwitchablePortal(game, pos=(24.5, 15.8), orig_location=(24.5, 7.61), alt_location=(22.5, 13.61), tag=1))
+        add_interactable(SwitchablePortal(game, pos=(20.2, 11.5), orig_location=(28.39, 11.5), alt_location=(26.39, 17.5), tag=1))
+        add_interactable(SwitchablePortal(game, pos=(28.8, 11.5), orig_location=(20.61, 11.5), alt_location=(18.61, 17.5), tag=1))
+        add_interactable(SwitchablePortal(game, pos=(22.5, 13.2), orig_location=(22.5, 21.39), alt_location=(24.5, 27.39), tag=2))
+        add_interactable(SwitchablePortal(game, pos=(22.5, 21.8), orig_location=(22.5, 13.61), alt_location=(24.5, 19.61), tag=2))
+        add_interactable(SwitchablePortal(game, pos=(18.2, 17.5), orig_location=(26.39, 17.5), alt_location=(28.39, 23.5), tag=2))
+        add_interactable(SwitchablePortal(game, pos=(26.8, 17.5), orig_location=(18.61, 17.5), alt_location=(20.61, 23.5), tag=2))
+        add_interactable(SwitchablePortal(game, pos=(24.5, 19.2), orig_location=(24.5, 27.39), alt_location=(28.5, 18.39), tag=3))
+        add_interactable(SwitchablePortal(game, pos=(24.5, 27.8), orig_location=(24.5, 19.61), alt_location=(28.5, 16.61), tag=3))
+        add_interactable(SwitchablePortal(game, pos=(20.2, 23.5), orig_location=(28.39, 23.5), alt_location=(27.61, 19.5), tag=3))
+        add_interactable(SwitchablePortal(game, pos=(28.8, 23.5), orig_location=(20.61, 23.5), alt_location=(29.39, 19.5), tag=3))
+        
+        
 
     def update(self):
         self.npc_pos = {npc.map_pos for npc in self.npc_list if npc.alive}

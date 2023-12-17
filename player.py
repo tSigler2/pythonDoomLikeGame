@@ -87,7 +87,6 @@ class Player:
         pg.draw.rect(self.game.screen, 'black', (50, 50, 300, 40))
         pg.draw.rect(self.game.screen, 'green', (50, 50, 300 * ratio, 40))
         
-
     def draw_ammo_count(self):
         ammo_img = self.ammo_font.render('Ammo: ' + str(self.ammo), True, (0, 0, 0))
         self.game.screen.blit(ammo_img, (50, 95))

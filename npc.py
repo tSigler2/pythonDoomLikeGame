@@ -173,3 +173,8 @@ class NPC(Animated_Sprite):
     @property
     def map_pos(self):
         return int(self.x), int(self.y)
+
+class TaggedNPC(NPC):
+    def __init__(self, game, path='Assets/NPCs/soldier/0.png', pos=(10.5, 5.5), scale=0.6, shift=0.38, animation_time=180, speed=0.03, health=100, tag=0):
+        super().__init__(game, path, pos, scale, shift, animation_time, speed, health)
+        self.tag = tag
