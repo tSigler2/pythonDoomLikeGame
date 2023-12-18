@@ -12,4 +12,5 @@ Standard Command: cd pythonDoomLikeGame && usr/local/bin/python3 main.py
 Movement: WASD\
 Shoot: Left Mouse\
 Close Window: ESC\
-Run: Hold Left Shift
+Run: Hold Left Shift\
+Mute Music: M
