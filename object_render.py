@@ -34,7 +34,7 @@ class ObjectRenderer:
     def draw_end_screen(self):
         self.screen.blit(self.death_screen, (0, 0))
 
-    def draw_win(self).
+    def draw_win(self):
         self.draw.rect(self.screen, (255, 255, 255), (0, 0, WIDTH, HEIGHT))
         end_text = self.font.render('You win!!', True, (0, 0, 0))
         self.game.screen.blit(end_text, (WIDTH/4, HEIGHT/4))
