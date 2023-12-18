@@ -24,6 +24,8 @@ class Game:
         self.glob_event = pg.USEREVENT + 0
         pg.time.set_timer(self.glob_event, 40)
         self.new_game()
+        self.music_swap = 0
+        self.END_MUSIC_BOX = pg.USEREVENT + 616
 
     def new_game(self):
         self.map = Map(self)
@@ -67,6 +69,13 @@ class Game:
             elif e.type == pg.KEYDOWN and e.key == pg.K_m and not pg.mixer.music.get_busy():
                 pg.mixer.music.unpause()
             self.player.single_fire_event(e)
+            if e.type == self.END_MUSIC_BOX and self.music_swap == 0:
+                pg.mixer.music.unload()
+                pg.mixer.music.load(self.sound.path + 'theme.mp3')
+                pg.mixer.music.play(-1)
+                self.music_swap = 1
+                self.player.x = 16.5
+                self.player.y = 17.5
     
     def run(self):
         while True:

@@ -10,18 +10,25 @@ class ObjectRenderer:
         self.p_pain = self.get_texture('Assets/blood_screen.png', RES)
         self.death_screen = self.get_texture('Assets/game_over.png', RES)
         self.sky_offset = 0
+        self.sky_mode = 0
 
     def draw(self):
         self.draw_background()
         self.render_objects()
 
     def draw_background(self):
-        #self.sky_offset = (self.sky_offset + 4.0 * self.game.player.rel) % WIDTH
-        #self.screen.blit(self.sky_image, (-self.sky_offset, 0))
-        #self.screen.blit(self.sky_image, (-self.sky_offset + WIDTH, 0))
-        
-        pg.draw.rect(self.screen, CEIL_COLOR, (0, 0, WIDTH, HEIGHT))
-        pg.draw.rect(self.screen, FLOOR_COLOR, (0, HALF_HEIGHT, WIDTH, HEIGHT))
+        if self.sky_mode == 1:
+            self.sky_offset = (self.sky_offset + 4.0 * self.game.player.rel) % WIDTH
+            self.screen.blit(self.sky_image, (-self.sky_offset, 0))
+            self.screen.blit(self.sky_image, (-self.sky_offset + WIDTH, 0))
+        elif self.sky_mode == 2:
+            pg.draw.rect(self.screen, (0, 0, 0), (0, 0, WIDTH, HEIGHT))
+        else:
+            pg.draw.rect(self.screen, CEIL_COLOR, (0, 0, WIDTH, HEIGHT))
+        if self.sky_mode == 2:
+            pg.draw.rect(self.screen, (0, 0, 0), (0, 0, WIDTH, HEIGHT))
+        else:
+            pg.draw.rect(self.screen, FLOOR_COLOR, (0, HALF_HEIGHT, WIDTH, HEIGHT))
 
     def draw_end_screen(self):
         self.screen.blit(self.death_screen, (0, 0))
@@ -42,5 +49,6 @@ class ObjectRenderer:
     def load_wall_textures(self):
         return {
                 1: self.get_texture('Assets/BrickWall.png'),
-                2: self.get_texture('Assets/WoodWall.png')
+                2: self.get_texture('Assets/WoodWall.png'),
+                3: self.get_texture('Assets/BlackWall.png')
             }

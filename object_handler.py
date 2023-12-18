@@ -37,7 +37,26 @@ class ObjectHandler:
         add_pick_up(HealthPickUp(game, pos=(3, 11)))
         add_pick_up(AmmoPickUp(game))
 
+        add_pick_up(HealthPickUp(game, pos=(22.5, 1.61)))
+        add_pick_up(HealthPickUp(game, pos=(22.5, 9.39)))
+        add_pick_up(HealthPickUp(game, pos=(24.5, 15.39)))
+        add_pick_up(HealthPickUp(game, pos=(24.5, 7.61)))
+        add_pick_up(HealthPickUp(game, pos=(22.5, 21.39)))
+        add_pick_up(HealthPickUp(game, pos=(22.5, 13.61)))
+        add_pick_up(HealthPickUp(game, pos=(24.5, 27.39)))
+        add_pick_up(HealthPickUp(game, pos=(24.5, 19.61)))
+
+        add_pick_up(AmmoPickUp(game, pos=(26.39, 5.5)))
+        add_pick_up(AmmoPickUp(game, pos=(18.61, 5.5)))
+        add_pick_up(AmmoPickUp(game, pos=(28.39, 11.5)))
+        add_pick_up(AmmoPickUp(game, pos=(20.61, 11.5)))
+        add_pick_up(AmmoPickUp(game, pos=(26.39, 17.5)))
+        add_pick_up(AmmoPickUp(game, pos=(18.61, 17.5)))
+        add_pick_up(AmmoPickUp(game, pos=(28.39, 23.5)))
+        add_pick_up(AmmoPickUp(game, pos=(20.61, 23.5)))
+
         add_interactable(Portal(game, pos=(16.5, 7.9), teleport_location=(22.5, 1.61)))
+        add_interactable(Portal(game, path='Assets/Animated_Sprites/BlackHole/0.png', pos=(29.5, 18.5), teleport_location=(31.5, 5.5)))
         add_interactable(SwitchablePortal(game, pos = (22.5, 1.2), orig_location=(22.5, 9.39), alt_location=(24.5, 15.39), tag=0))
         add_interactable(SwitchablePortal(game, pos=(22.5, 9.8), orig_location=(22.5, 1.61), alt_location=(24.5, 7.61), tag=0))
         add_interactable(SwitchablePortal(game, pos=(18.2, 5.5), orig_location=(26.39, 5.5), alt_location=(28.39, 11.5), tag=0))
@@ -50,10 +69,10 @@ class ObjectHandler:
         add_interactable(SwitchablePortal(game, pos=(22.5, 21.8), orig_location=(22.5, 13.61), alt_location=(24.5, 19.61), tag=2))
         add_interactable(SwitchablePortal(game, pos=(18.2, 17.5), orig_location=(26.39, 17.5), alt_location=(28.39, 23.5), tag=2))
         add_interactable(SwitchablePortal(game, pos=(26.8, 17.5), orig_location=(18.61, 17.5), alt_location=(20.61, 23.5), tag=2))
-        add_interactable(SwitchablePortal(game, pos=(24.5, 19.2), orig_location=(24.5, 27.39), alt_location=(28.5, 18.39), tag=3))
-        add_interactable(SwitchablePortal(game, pos=(24.5, 27.8), orig_location=(24.5, 19.61), alt_location=(28.5, 16.61), tag=3))
-        add_interactable(SwitchablePortal(game, pos=(20.2, 23.5), orig_location=(28.39, 23.5), alt_location=(27.61, 19.5), tag=3))
-        add_interactable(SwitchablePortal(game, pos=(28.8, 23.5), orig_location=(20.61, 23.5), alt_location=(29.39, 19.5), tag=3))
+        add_interactable(SwitchablePortal(game, pos=(24.5, 19.2), orig_location=(24.5, 27.39), alt_location=(28.5, 19.5), tag=3))
+        add_interactable(SwitchablePortal(game, pos=(24.5, 27.8), orig_location=(24.5, 19.61), alt_location=(28.5, 17.5), tag=3))
+        add_interactable(SwitchablePortal(game, pos=(20.2, 23.5), orig_location=(28.39, 23.5), alt_location=(27.5, 18.5), tag=3))
+        add_interactable(SwitchablePortal(game, pos=(28.8, 23.5), orig_location=(20.61, 23.5), alt_location=(29.5, 18.5), tag=3))
         
         
 
