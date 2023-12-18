@@ -90,6 +90,23 @@ class Player:
     def draw_ammo_count(self):
         ammo_img = self.ammo_font.render('Ammo: ' + str(self.ammo), True, (0, 0, 0))
         self.game.screen.blit(ammo_img, (50, 95))
+
+    def check_npcs(self):
+        self.check_list[]
+        end_game = True
+
+        for npc in self.game.object_handler.npc_list:
+            if isinstance(npc, TaggedNPC):
+                if npc.tag == 4:
+                    slef.check_list.append(npc)
+
+        for npc in self.check_list:
+            if npc.alive:
+                end_game = False
+
+        if end_game:
+            self.x = 32.5
+            self.y = 27.5
         
     def update(self):
         self.movement()

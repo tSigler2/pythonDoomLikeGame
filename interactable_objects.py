@@ -83,14 +83,28 @@ class BlackHole(Portal):
     def __init__(self, game, path='Assets/Animated_Sprites/BlackHole/0.png', pos=(16.5, 7.9), scale=1, shift=0, animation_time=100, teleport_location=(2.0, 12.0), pick_up_dist=0.1):
         super().__init__(game, path, pos, scale, shift, animation_time, teleport_location, pick_up_dist)
 
-    def update():
+    def update(self):
+        self.check_animation_time()
+        self.get_sprite()
+        self.animate(self.images)
+
         if self.check_player():
+            self.teleport()
+
+        if self.game.player.x == 31.5 and self.game.player.y == 5.5 and not pg.mixer.music.get_busy():
             pg.mixer.music.play()
-        
+
+
+class Trophy(Interactable_No_Key):
+    def __init__(self, game, path='', pos=(), scale=1, shift=0, animation_time=100, pick_up_dist=0.4):
+        super().__init__(game, path, pos, scale, shift, animation_time, pick_up_dist)
+        self.pick_up_dist = pick_up_dist
+
+    def update(self):
         super().update()
 
-
-    
+        if self.check_player():
+            self.game.end_game = True
 
         
             

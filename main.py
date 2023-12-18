@@ -26,6 +26,7 @@ class Game:
         self.new_game()
         self.music_swap = 0
         self.END_MUSIC_BOX = pg.USEREVENT + 616
+        self.end_game = False
 
     def new_game(self):
         self.map = Map(self)
@@ -78,13 +79,16 @@ class Game:
                 self.player.y = 17.5
     
     def run(self):
-        while True:
+        while not end_game:
             self.check_events()
             self.update()
             self.draw()
             if self.player.health <= 0:
                 break
-        self.objRenderer.draw_end_screen()
+        if self.player.health <= 0)
+            self.objRenderer.draw_end_screen()
+        else:
+            self.objRender.draw_win()
         pg.mixer.music.stop()
         pg.display.flip()
         time.sleep(3)

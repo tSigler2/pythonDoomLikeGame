@@ -11,6 +11,7 @@ class ObjectRenderer:
         self.death_screen = self.get_texture('Assets/game_over.png', RES)
         self.sky_offset = 0
         self.sky_mode = 0
+        self.font = pg.Font.SysFont('chalkduster.ttf', 72)
 
     def draw(self):
         self.draw_background()
@@ -32,6 +33,11 @@ class ObjectRenderer:
 
     def draw_end_screen(self):
         self.screen.blit(self.death_screen, (0, 0))
+
+    def draw_win(self).
+        self.draw.rect(self.screen, (255, 255, 255), (0, 0, WIDTH, HEIGHT))
+        end_text = self.font.render('You win!!', True, (0, 0, 0))
+        self.game.screen.blit(end_text, (WIDTH/4, HEIGHT/4))
 
     def render_objects(self):
         list_objects = sorted(self.game.raycasting.objects_to_render, key=lambda t: t[0], reverse=True)
