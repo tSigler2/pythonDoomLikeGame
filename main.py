@@ -79,13 +79,13 @@ class Game:
                 self.player.y = 17.5
     
     def run(self):
-        while not end_game:
+        while not self.end_game:
             self.check_events()
             self.update()
             self.draw()
             if self.player.health <= 0:
                 break
-        if self.player.health <= 0)
+        if self.player.health <= 0:
             self.objRenderer.draw_end_screen()
         else:
             self.objRender.draw_win()

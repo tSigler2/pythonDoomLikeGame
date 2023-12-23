@@ -92,7 +92,7 @@ class Player:
         self.game.screen.blit(ammo_img, (50, 95))
 
     def check_npcs(self):
-        self.check_list[]
+        self.check_list = []
         end_game = True
 
         for npc in self.game.object_handler.npc_list:

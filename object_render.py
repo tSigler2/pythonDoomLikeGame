@@ -11,7 +11,7 @@ class ObjectRenderer:
         self.death_screen = self.get_texture('Assets/game_over.png', RES)
         self.sky_offset = 0
         self.sky_mode = 0
-        self.font = pg.Font.SysFont('chalkduster.ttf', 72)
+        self.font = pg.font.SysFont('chalkduster.ttf', 72)
 
     def draw(self):
         self.draw_background()
