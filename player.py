@@ -1,4 +1,5 @@
 from settings import *
+from npc import *
 import pygame as pg
 import math
 
@@ -98,7 +99,7 @@ class Player:
         for npc in self.game.object_handler.npc_list:
             if isinstance(npc, TaggedNPC):
                 if npc.tag == 4:
-                    slef.check_list.append(npc)
+                    self.check_list.append(npc)
 
         for npc in self.check_list:
             if npc.alive:
